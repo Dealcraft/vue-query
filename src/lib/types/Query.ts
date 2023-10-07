@@ -1,3 +1,3 @@
 export type Query = {
-	get(route: string): string;
+	get(route: string): Promise<string>;
 };
