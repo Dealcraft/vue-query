@@ -21,6 +21,5 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
     "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
     "prettier/prettier": "warn",
-    "vue/require-component-is": "off"
   },
 };

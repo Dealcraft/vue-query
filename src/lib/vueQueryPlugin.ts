@@ -1,11 +1,10 @@
-import { App, Plugin } from "vue";
+import { App } from "vue";
+import { Plugin } from "./types/Plugin.ts";
+import { PluginOptions } from "./types/PluginOptions.ts";
+import { createQuery } from "./queryFactory.ts";
 
 export const VueQueryPlugin: Plugin = {
-	install(app: App) {
-		app.config.globalProperties.$query = {
-			get() {
-				return "Hallo";
-			},
-		};
+	install: (app: App, options: PluginOptions): void => {
+		app.config.globalProperties.$query = createQuery(options);
 	},
 };
