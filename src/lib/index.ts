@@ -1,8 +1,3 @@
-import Component from "../components/Component.vue";
-import { App } from "vue";
+export { VueQueryPlugin } from "./vueQueryPlugin.ts";
 
-export const VuePluginTemplate = {
-	install: (app: App) => {
-		app.component("Component", Component);
-	},
-};
+export * from "./gloablExtensions.ts";

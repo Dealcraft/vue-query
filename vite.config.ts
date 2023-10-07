@@ -7,9 +7,9 @@ import eslintPlugin from "vite-plugin-eslint";
 export default defineConfig({
 	build: {
 		lib: {
-			entry: resolve(__dirname, "src/main.ts"),
-			name: "vue-plugin-template",
-			fileName: format => `vue-plugin-template.${format}.js`,
+			entry: resolve(__dirname, "src/lib/index.ts"),
+			name: "vue-query",
+			fileName: format => `vue-query.${format}.js`,
 		},
 		rollupOptions: {
 			external: ["vue"],

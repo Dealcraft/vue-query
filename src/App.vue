@@ -1,14 +1,12 @@
 <template>
-	<Component></Component>
+	<div>{{ $query.get() }}</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Component from "./components/Component.vue";
 
 export default defineComponent({
 	name: "App",
-	components: { Component },
 });
 </script>
 

@@ -1,17 +1,17 @@
 {
-  "name": "vue-plugin-template",
+  "name": "vue-query",
   "private": false,
   "version": "1.0.0-beta",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-plugin-template.umd.js",
-  "module": "./dist/vue-plugin-template.es.js",
+  "main": "./dist/vue-query.umd.js",
+  "module": "./dist/vue-query.es.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-plugin-template.es.js",
-      "require": "./dist/vue-plugin-template.umd.js"
+      "import": "./dist/vue-query.es.js",
+      "require": "./dist/vue-query.umd.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
@@ -19,7 +19,7 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",
     "format": "prettier .  --write"
   },
   "dependencies": {
