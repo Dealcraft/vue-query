@@ -86,7 +86,6 @@ jspm_packages/
 dist
 dist-ssr
 *.local
-package-lock.json
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
