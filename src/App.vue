@@ -1,5 +1,8 @@
 <template>
-	<div>{{ posts }}</div>
+	<div>
+		<p>{{ typeof posts }}</p>
+		<pre>{{ posts }}</pre>
+	</div>
 </template>
 
 <script lang="ts">
@@ -9,7 +12,7 @@ export default defineComponent({
 	name: "App",
 	data() {
 		return {
-			posts: "",
+			posts: [],
 		};
 	},
 

@@ -1,3 +1,7 @@
 export type Query = {
-	get(route: string): Promise<string>;
+	get<ResponseType = unknown>(route: string): Promise<ResponseType>;
+	post<ResponseType = unknown>(
+		route: string,
+		body: object | string
+	): Promise<ResponseType>;
 };
