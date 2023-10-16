@@ -1,4 +1,4 @@
-export { VueQueryPlugin } from "./vueQueryPlugin.ts";
+export { VueQueryifyPlugin } from "./vueQueryifyPlugin.ts";
 
 export type { Plugin } from "./types/Plugin.ts";
 export type { PluginOptions } from "./types/PluginOptions.ts";

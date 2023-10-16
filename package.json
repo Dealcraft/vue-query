@@ -1,19 +1,27 @@
 {
-  "name": "vue-query",
+  "name": "vue-queryify",
   "private": false,
   "version": "1.0.0-beta",
+  "author": "David <community@dealcraft.de> (https://dealcraft.de)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dealcraft/Points-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dealcraft/Points-system/issues"
+  },
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-query.umd.js",
-  "module": "./dist/vue-query.es.js",
+  "main": "./dist/vue-queryify.umd.js",
+  "module": "./dist/vue-queryify.es.js",
   "exports": {
     ".": {
-      "import": "./dist/vue-query.es.js",
-      "require": "./dist/vue-query.umd.js"
-    },
-    "./dist/style.css": "./dist/style.css"
+      "import": "./dist/vue-queryify.es.js",
+      "require": "./dist/vue-queryify.umd.js"
+    }
   },
   "scripts": {
     "dev": "vite",
