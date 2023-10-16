@@ -27,6 +27,7 @@ export default defineConfig({
 		dts({
 			include: ["src/lib/**/*.ts"],
 			outDir: "dist/types",
+			rollupTypes: true,
 		}),
 	],
 });

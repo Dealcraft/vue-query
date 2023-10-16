@@ -17,7 +17,7 @@
   ],
   "main": "./dist/vue-queryify.umd.js",
   "module": "./dist/vue-queryify.es.js",
-  "types": "./dist/types",
+  "types": "./dist/types/vue-querify.es.d.ts",
   "exports": {
     ".": {
       "import": "./dist/vue-queryify.es.js",
