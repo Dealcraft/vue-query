@@ -11,11 +11,8 @@ export class QueryRunner implements Query {
 	constructor(options: DefaultMergedOptions) {
 		this.options = options;
 		this.logger = new loggerService(options.logLevel, options.logger);
-		this.logger.debug("QueryRunner debug");
-		this.logger.log("QueryRunner log");
-		this.logger.info("QueryRunner info");
-		this.logger.warn("QueryRunner warn");
-		this.logger.error("QueryRunner error");
+		this.logger.log("Logger initialized");
+		this.logger.log("QueryRunner initialized");
 	}
 
 	async request<T = unknown>(
@@ -37,11 +34,12 @@ export class QueryRunner implements Query {
 
 		let timeout: NodeJS.Timeout | null = null;
 		if (this.options.maxLoadingTime) {
-			this.logger.debug(`Starting timeout ${this.options.maxLoadingTime}ms`);
 			const abortController = new AbortController();
+			this.logger.debug("AbortController initialized");
 			timeout = setTimeout(() => {
 				abortController.abort();
 			}, this.options.maxLoadingTime);
+			this.logger.debug(`Started timeout ${this.options.maxLoadingTime}ms`);
 			fetchInit.signal = abortController.signal;
 		}
 
@@ -49,7 +47,12 @@ export class QueryRunner implements Query {
 		const result: Response = await fetch(fullUrl, fetchInit);
 		if (timeout) clearTimeout(timeout);
 
-		return result.json();
+		const json = await result.json();
+
+		this.logger.debug(`Response status: ${result.status}`);
+		this.logger.debug("Response", json);
+
+		return json;
 	}
 
 	async get<T = unknown>(route: string): Promise<T> {
@@ -60,5 +63,20 @@ export class QueryRunner implements Query {
 	async post<T = unknown>(route: string, body?: object | string): Promise<T> {
 		this.logger.log(`POST ${route}`);
 		return this.request<T>(HTTPVerb.POST, route, body);
+	}
+
+	async patch<T = unknown>(route: string, body?: object | string): Promise<T> {
+		this.logger.log(`PATCH ${route}`);
+		return this.request<T>(HTTPVerb.PATCH, route, body);
+	}
+
+	async delete<T = unknown>(route: string): Promise<T> {
+		this.logger.log(`DELETE ${route}`);
+		return this.request<T>(HTTPVerb.DELETE, route);
+	}
+
+	async put<T = unknown>(route: string, body?: object | string): Promise<T> {
+		this.logger.log(`PUT ${route}`);
+		return this.request<T>(HTTPVerb.PUT, route, body);
 	}
 }

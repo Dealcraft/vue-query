@@ -18,12 +18,12 @@ export class loggerService implements Logger {
 		return `[VueQueryfy ${this.createTimestamp()}] `;
 	}
 
-	private concatArgs(...args: unknown[]): string {
-		let res = this.loggerPrefix();
+	private concatArgs(...args: unknown[]): unknown[] {
+		const res: unknown[] = [this.loggerPrefix()];
 
 		for (const arg of args) {
-			if (typeof arg === "string") res += arg;
-			else break;
+			if (typeof arg === "string") res[0] += arg;
+			else res.push(arg);
 		}
 
 		return res;
@@ -31,31 +31,31 @@ export class loggerService implements Logger {
 
 	debug(...args: unknown[]): void {
 		if (this.logLevel <= LogLevel.DEBUG) {
-			this.logger.debug(this.concatArgs(...args));
+			this.logger.debug(...this.concatArgs(...args));
 		}
 	}
 
 	log(...args: unknown[]): void {
 		if (this.logLevel <= LogLevel.LOG) {
-			this.logger.log(this.concatArgs(...args));
+			this.logger.log(...this.concatArgs(...args));
 		}
 	}
 
 	info(...args: unknown[]): void {
 		if (this.logLevel <= LogLevel.INFO) {
-			this.logger.info(this.concatArgs(...args));
+			this.logger.info(...this.concatArgs(...args));
 		}
 	}
 
 	warn(...args: unknown[]): void {
 		if (this.logLevel <= LogLevel.WARN) {
-			this.logger.warn(this.concatArgs(...args));
+			this.logger.warn(...this.concatArgs(...args));
 		}
 	}
 
 	error(...args: unknown[]): void {
 		if (this.logLevel <= LogLevel.ERROR) {
-			this.logger.error(this.concatArgs(...args));
+			this.logger.error(...this.concatArgs(...args));
 		}
 	}
 }

@@ -6,7 +6,7 @@ import { LogLevel } from "./lib/constants/LogLevel.ts";
 createApp(App)
 	.use(VueQueryfyPlugin, {
 		baseUrl: "https://jsonplaceholder.typicode.com",
-		maxLoadingTime: 10,
-		logLevel: LogLevel.ERROR,
+		maxLoadingTime: 1000,
+		logLevel: LogLevel.DEBUG,
 	})
 	.mount("#app");
