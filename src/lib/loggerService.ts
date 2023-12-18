@@ -30,31 +30,31 @@ export class loggerService implements Logger {
 	}
 
 	debug(...args: unknown[]): void {
-		if (this.logLevel >= LogLevel.DEBUG) {
+		if (this.logLevel <= LogLevel.DEBUG) {
 			this.logger.debug(this.concatArgs(...args));
 		}
 	}
 
 	log(...args: unknown[]): void {
-		if (this.logLevel >= LogLevel.LOG) {
+		if (this.logLevel <= LogLevel.LOG) {
 			this.logger.log(this.concatArgs(...args));
 		}
 	}
 
 	info(...args: unknown[]): void {
-		if (this.logLevel >= LogLevel.INFO) {
+		if (this.logLevel <= LogLevel.INFO) {
 			this.logger.info(this.concatArgs(...args));
 		}
 	}
 
 	warn(...args: unknown[]): void {
-		if (this.logLevel >= LogLevel.WARN) {
+		if (this.logLevel <= LogLevel.WARN) {
 			this.logger.warn(this.concatArgs(...args));
 		}
 	}
 
 	error(...args: unknown[]): void {
-		if (this.logLevel >= LogLevel.ERROR) {
+		if (this.logLevel <= LogLevel.ERROR) {
 			this.logger.error(this.concatArgs(...args));
 		}
 	}
