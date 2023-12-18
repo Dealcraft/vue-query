@@ -29,7 +29,8 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore --fix src",
-    "format": "prettier .  --write"
+    "format": "prettier .  --write",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "vue": "^3.3.4"
@@ -51,5 +52,6 @@
     "vite-plugin-eslint": "^1.8.1",
     "vue-eslint-parser": "^9.3.1",
     "vue-tsc": "^1.8.5"
-  }
+  },
+  "keywords": ["Vue", "Vue3", "Vue plugin", "Vuejs", "Typescript", "Query", "Web"]
 }
