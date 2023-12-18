@@ -19,6 +19,15 @@ export default defineComponent({
 	methods: {
 		async getPosts() {
 			this.posts = await this.$query.get("/posts");
+			this.posts = await this.$query.post("/posts", {
+				title: "Hello World",
+				body: "This is a post",
+			});
+			this.posts = await this.$query.patch("/posts/1", {
+				title: "Hello World",
+				body: "This is a post",
+			});
+			this.posts = await this.$query.delete("/posts/1");
 		},
 	},
 
