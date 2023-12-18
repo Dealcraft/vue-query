@@ -1,11 +1,19 @@
 import { Query } from "./types/Query.ts";
 import { PluginOptions } from "./types/PluginOptions.ts";
 import { HTTPVerb } from "./constants/HTTPVerb.ts";
+import { loggerService } from "./loggerService.ts";
+import { Logger } from "./types/Logger.ts";
+import { defaultOptions } from "./utils.ts";
 
 export class QueryRunner implements Query {
 	private options: PluginOptions;
-	constructor(options: PluginOptions) {
+	private logger: Logger;
+	constructor(
+		options: PluginOptions &
+			Required<Pick<PluginOptions, keyof typeof defaultOptions>>
+	) {
 		this.options = options;
+		this.logger = new loggerService(options.logLevel, options.logger);
 	}
 
 	async request<T = unknown>(
@@ -22,19 +30,22 @@ export class QueryRunner implements Query {
 			if (typeof body === "object") fetchInit.body = JSON.stringify(body);
 		}
 
-		const result: Response = await fetch(
-			`${this.options.baseUrl}${route}`,
-			fetchInit
-		);
+		this.logger.debug(`Constructing full URL for ${route}`);
+		const fullUrl: string = `${this.options.baseUrl}${route}`;
+
+		this.logger.log(`Sending request to ${fullUrl}`);
+		const result: Response = await fetch(fullUrl, fetchInit);
 
 		return result.json();
 	}
 
-	get<T = unknown>(route: string): Promise<T> {
+	async get<T = unknown>(route: string): Promise<T> {
+		this.logger.log(`GET ${route}`);
 		return this.request<T>(HTTPVerb.GET, route);
 	}
 
-	post<T = unknown>(route: string, body?: object | string): Promise<T> {
+	async post<T = unknown>(route: string, body?: object | string): Promise<T> {
+		this.logger.log(`POST ${route}`);
 		return this.request<T>(HTTPVerb.POST, route, body);
 	}
 }
