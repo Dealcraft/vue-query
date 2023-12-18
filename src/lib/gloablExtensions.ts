@@ -1,6 +1,6 @@
 import { Query } from "./types/Query.ts";
 
-declare module "@vue/runtime-core" {
+declare module "vue" {
 	interface ComponentCustomProperties {
 		$query: Query;
 	}
