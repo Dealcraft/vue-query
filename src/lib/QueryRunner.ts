@@ -3,15 +3,12 @@ import { PluginOptions } from "./types/PluginOptions.ts";
 import { HTTPVerb } from "./constants/HTTPVerb.ts";
 import { loggerService } from "./loggerService.ts";
 import { Logger } from "./types/Logger.ts";
-import { defaultOptions } from "./utils.ts";
+import { DefaultMergedOptions } from "./utils.ts";
 
 export class QueryRunner implements Query {
 	private options: PluginOptions;
 	private logger: Logger;
-	constructor(
-		options: PluginOptions &
-			Required<Pick<PluginOptions, keyof typeof defaultOptions>>
-	) {
+	constructor(options: DefaultMergedOptions) {
 		this.options = options;
 		this.logger = new loggerService(options.logLevel, options.logger);
 	}
