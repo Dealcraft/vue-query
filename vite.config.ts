@@ -9,8 +9,8 @@ export default defineConfig({
 	build: {
 		lib: {
 			entry: resolve(__dirname, "src/lib/index.ts"),
-			name: "vue-queryify",
-			fileName: format => `vue-queryify.${format}.js`,
+			name: "vue-queryfy",
+			fileName: format => `vue-queryfy.${format}.js`,
 		},
 		rollupOptions: {
 			external: ["vue"],
