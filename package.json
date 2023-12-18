@@ -1,12 +1,12 @@
 {
-  "name": "vue-queryify",
+  "name": "vue-queryfy",
   "private": false,
   "version": "1.0.0-beta.1",
   "author": "David <community@dealcraft.de> (https://dealcraft.de)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dealcraft/vue-queryify.git"
+    "url": "git+https://github.com/Dealcraft/vue-queryfy.git"
   },
   "bugs": {
     "url": "https://github.com/Dealcraft/vue-queryify/issues"
@@ -15,13 +15,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/vue-queryify.umd.js",
-  "module": "./dist/vue-queryify.es.js",
-  "types": "./dist/types/vue-querify.es.d.ts",
+  "main": "./dist/vue-queryfy.umd.js",
+  "module": "./dist/vue-queryfy.es.js",
+  "types": "./dist/types/vue-queryfy.es.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vue-queryify.es.js",
-      "require": "./dist/vue-queryify.umd.js"
+      "import": "./dist/vue-queryfy.es.js",
+      "require": "./dist/vue-queryfy.umd.js"
     }
   },
   "scripts": {

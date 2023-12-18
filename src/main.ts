@@ -1,9 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import { VueQueryifyPlugin } from "./lib";
+import { VueQueryfyPlugin } from "./lib";
 
 createApp(App)
-	.use(VueQueryifyPlugin, {
+	.use(VueQueryfyPlugin, {
 		baseUrl: "https://jsonplaceholder.typicode.com",
 	})
 	.mount("#app");

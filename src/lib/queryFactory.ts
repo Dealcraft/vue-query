@@ -10,6 +10,7 @@ export function createQuery(options: PluginOptions): Query {
 		const fetchInit: RequestInit = {
 			method,
 		};
+
 		if (body) {
 			if (typeof body === "object") fetchInit.body = JSON.stringify(body);
 			if (typeof body === "string") fetchInit.body = body;
